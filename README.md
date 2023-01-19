@@ -19,6 +19,10 @@ DB_URL="mysql://dbUser:dbPassword@localhost:dbPort/dbName?serverVersion=8&charse
 ``` 
 php bin/console doctrine:database:create
 ```
+- Then execute the migrations to create the DB tables structure in your local DB:
+``` 
+php bin/console doctrine:migrations:migrate
+```
 - Now, to seed our DB with the data of the Star Wars API you can run the customized command:
 1) Create the command and in the generated *StarwarsimportCommand.php* introduce your logic:
 ```
