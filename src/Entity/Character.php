@@ -36,7 +36,7 @@ class Character
     private $mass;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $height;
 
@@ -113,12 +113,12 @@ class Character
         return $this;
     }
 
-    public function getHeight(): ?int
+    public function getHeight(): ?string
     {
         return $this->height;
     }
 
-    public function setHeight(int $height): self
+    public function setHeight(string $height): self
     {
         $this->height = $height;
 
