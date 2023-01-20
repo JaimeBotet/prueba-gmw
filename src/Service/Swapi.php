@@ -41,11 +41,13 @@ class Swapi extends AbstractController
 
 		$movies = $this->getSwapiMovies();
 		$characters = $this->getSwapiCharacters();
-		if($this->processMovies($movies) == null )  {
+
+		if($this->saveMovies($movies) == null )  {
 			$response['status'] = 'KO';
 			$response['error'] = 'Error processing movies';
 		}
-		if($this->processCharacters($characters) == null) {
+
+		if($this->saveCharacters($characters) == null) {
 			$response['status'] = 'KO';
 			$response['error'] = 'Error processing characters';
 		} 
@@ -58,7 +60,7 @@ class Swapi extends AbstractController
 		$url = $this->url . 'films/';
 		$movies = json_decode($this->request('GET', $url),true);
 		$movies = $movies['results'];
-
+ 
 		return $movies;
 	}
 
@@ -77,19 +79,20 @@ class Swapi extends AbstractController
 		return $totalCharacters;
 	}
 
-	private function processMovies($movies)
+	private function saveMovies($movies)
 	{
 		$em = $this->doctrine->getManager();
 		foreach($movies as $movie) {
 			$newMovie = new Movie;
 			$newMovie->setName($movie['title']);
-
 			$em->persist($newMovie);
-			$em->flush();
 		}
+		$em->flush();
+
+		return true;
 	}
 
-	private function processCharacters($characters)
+	private function saveCharacters($characters)
 	{
 		$em = $this->doctrine->getManager();
 
@@ -98,9 +101,8 @@ class Swapi extends AbstractController
 			$newCharacter->setHeight($character['height']);
 			$newCharacter->setGender($character['gender']);
 			$newCharacter->setName($character['name']);
-			$newCharacter->setPicture('some picture');
 			$newCharacter->setMass($character['mass']);
-
+			
 			// here for each Character we add the films into de colection of movies
 			foreach($character['films'] as $film) {
 				$foundFilm = json_decode($this->request('GET', $film),true);
@@ -109,8 +111,10 @@ class Swapi extends AbstractController
 			}
 
 			$em->persist($newCharacter);
-			$em->flush();
 		}
+		
+		$em->flush();
+		return true;
 	}
 
     private function request($method, $url)
