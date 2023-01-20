@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+}
+header{
+    text-align: center;
+    background-color: black;
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+}
+header img{
+    height: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 20px auto;
+    font-size: 1vw;
+}
+.section_button{
+    border: solid 1px white;
+    border-radius: 4vw;
+    width: 8vw;
+    text-align: center;
+    cursor: pointer;
+}
+.section_button:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+.results_section{
+    justify-content: space-evenly;
+}
+.main_container{
+    height: 70vh;
+    width: 90vw;
+    display: flex;
+    flex-flow: row wrap;
+    overflow-y: scroll;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+.main_container img{
+    height: 70vh;
+    width: 75vw;
+}
+.secondary_background{
+    height: 70vh;
+    width: 90vw;
+    position: relative;
+    overflow: scroll;
+	opacity: 0.5;
+}
+.secondary_background::after{
+    position: absolute;
+    content: "";
+    background: url("img/SW_Secondary_Wallpaper.jpg");
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.spinner-container {
+	width: 100%;
+	height: 60px;
+}
+
+.spinner-loader {
+	border: 8px solid #f3f3f3; /* Light grey */
+	border-top: 8px solid #3498db; /* Blue */
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	animation: spin 1s linear infinite;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+.img-spinner-loader {
+	border: 6px solid #f3f3f3; /* Light grey */
+	border-top: 6px solid #3498db; /* Blue */
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	animation: spin 1s linear infinite;
+	margin: 0 auto;
+}
+
+.search_engine{
+    width: 100%;
+    height: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.search_engine input{
+    width: 20%;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    left: 40%;
+    color: black;
+    margin-bottom: 20px;
+    outline: none;
+}
+.output_container{
+    margin: 10px auto;
+}
+.film_card{
+    width: 25vw;
+    height: 40vh;
+    margin: 2vh 0;
+    padding: 20px;
+    background-color: rgba(216, 189, 189,0.7);
+    box-shadow: 3px 3px 5px rgb(51, 48, 48);
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.film_card:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+.card_img_container{
+    width: 100%;
+    margin: 0 auto;
+}
+.card_img_container img{
+    margin: 0 auto;
+    width: 14vw;
+    height: 22vh;
+}
+.film_card p{
+    font-size: 12px;
+    text-shadow: 1px 1px 3px black ;
+}
+
+.selected_film_container{
+    width: 60vw;
+    height: 65vh;
+    margin: 2vh 0;
+    padding: 20px;
+    background-color: rgb(19, 17, 17);
+    box-shadow: 0px 0px 5px 5px rgb(92, 90, 90);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: #feda4a;
+    font-size: 500%;
+    font-weight: 600;
+    letter-spacing: 6px;
+    line-height: 130%;
+    perspective: 150px;
+}
+.selected_film_container h1{
+    line-height: 95%;
+}
+.selected_film_container *{
+    text-align: center;
+}
+.crawl *{
+    color: #feda4a;
+    font-family: 'Pathway Gothic One', sans-serif;
+}
+.fade {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    top: -5px;
+    background-image: linear-gradient(0deg, transparent, rgb(19, 17, 17) 75%);
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+.crawl {
+    position: relative;
+    top: 99999px;
+    transform-origin: 50% 100%;
+    animation: crawl 90s linear;
+}
+
+.crawl > .title {
+    font-size: 90%;
+    text-align: center;
+}
+
+.crawl > .title h1 {
+    margin: 0 0 100px;
+    text-transform: uppercase;
+}
+
+@keyframes crawl {
+    0% {
+        top: 500px;
+        transform: rotateX(20deg)  translateZ(0);
+}
+    100% {
+        top: -2500px;
+        transform: rotateX(25deg) translateZ(-2500px);
+    }
+}
+
+
+
+#characters_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.char_card {
+    width: 20%;
+    border: 1px solid white;
+    margin: 2vh 2vw;
+    text-align: center;
+    padding: 20px;
+}
+img.char_img {
+    height: 20vh;
+    width: 15vw;
+
+}
+
+.button_container {
+    width: 100%;
+    text-align: center;
+}
+
+.load_more {
+    width: 10vw;
+    height: 5vh;
+    background-color: transparent;
+    border: 1px solid white;
+    margin: 2vh 0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+
+.char_name {
+    color: white;
+}
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+}
+
+  /* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(156, 152, 152, 0.5);
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: grey;
+}
