@@ -61,23 +61,14 @@ header img{
 .secondary_background{
     height: 70vh;
     width: 90vw;
+	background: url("../img/SW_Secondary_Wallpaper.jpg");
+	background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     overflow: scroll;
 	opacity: 0.5;
 }
-.secondary_background::after{
-    position: absolute;
-    content: "";
-    background: url("img/SW_Secondary_Wallpaper.jpg");
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 .spinner-container {
 	width: 100%;
@@ -126,8 +117,8 @@ header img{
     margin: 10px auto;
 }
 .film_card{
-    width: 25vw;
-    height: 40vh;
+    width: 40vw;
+    height: 20vh;
     margin: 2vh 0;
     padding: 20px;
     background-color: rgba(216, 189, 189,0.7);

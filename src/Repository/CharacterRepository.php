@@ -47,6 +47,15 @@ class CharacterRepository extends ServiceEntityRepository
         }
     }
 
+	public function findAllCharacters()
+	{
+		return $this->createQueryBuilder('c')
+            ->orderBy('c.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+	}
+
     // /**
     //  * @return Character[] Returns an array of Character objects
     //  */

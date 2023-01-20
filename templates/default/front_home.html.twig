@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}We love Star Wars!{% endblock %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel='stylesheet' type='text/css' href="{{ asset('css/front.css') }}"/>
+
+{% endblock %}
+
+{% block body %}
+
+<body>
+    <header>
+        <img src="{{ asset('img/SW_first_trilogy.jpg') }}" alt="First Trilogy">
+        <img src="{{ asset('img/Star_Wars_Logo.png') }}" alt="Star Wars">
+        <img src="{{ asset('img/SW_second_trilogy.jpg') }}" alt="Second Trilogy">
+    </header>
+    <div class="web_container">
+        <div class="top_section">
+            <div class="section_button" id="films_btn">Movies</div>
+        </div>
+
+        <div class="results_section">
+			<div class="search_engine" id="search_engine">
+				<input type="text" id="search_input" placeholder="Search a character..." >
+			</div>
+            <div class="main_container secondary_background" id="main_container">
+
+				<div class="output_container" id="output_container">
+					{% for character in characters %}
+					<div class="film_card">
+						{# <img class="char_img" src="{{ character.picture }}"> #}
+						<p class="char_name">{{ character.name }}</p>
+						<p class="char_name">Height: {{ character.height }}</p>
+						<p class="char_name">Mass: {{ character.mass }}</p>
+						<p class="char_name">Gender: {{ character.gender }}</p>
+					</div>
+					{% endfor %}
+
+				
+				</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/galaxy.js"></script>
+    <script src="src/seeder.js"></script>
+</body>
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+
+	<script type="text/javascript">
+
+		$(document).ready( () => {
+
+			$("#films_btn").click( () =>{
+				console.log("Going to movies site");
+			})
+
+			$("#search_input").on("keyup", function() {
+				let value = $(this).val().toLowerCase();
+				$(".film_card").filter(function() {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+				})
+			});
+		})
+
+
+	</script>
+
+{% endblock javascripts %}
